@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Portal — Blazefire Enterprise</title>
+<link rel="icon" href="assets/logo.jpeg">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta name="theme-color" content="#241708">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.login-box{max-width:420px; margin:0 auto; background:var(--parchment-soft); border:1px solid var(--ochre-line); padding:48px 40px; border-radius:var(--radius);}
+.login-box h2{font-size:26px; margin-bottom:8px;}
+.login-box p{color:var(--umber); font-size:14px; margin-bottom:28px;}
+.demo-note{background:rgba(138,90,52,0.08); border:1px dashed var(--ochre-line); padding:12px 16px; font-size:12.5px; color:var(--umber); margin-top:20px; border-radius:var(--radius);}
+
+#dashboard-panel{display:none;}
+.dash-shell{display:grid; grid-template-columns:240px 1fr; min-height:80vh;}
+.dash-side{background:var(--espresso); color:#D9C8AE; padding:32px 20px;}
+.dash-side .db-brand{display:flex; align-items:center; gap:10px; color:#fff; font-family:var(--font-display); font-weight:700; margin-bottom:36px;}
+.dash-side .db-brand img{width:28px;}
+.dash-nav a{display:block; padding:11px 14px; border-radius:var(--radius); font-size:14px; margin-bottom:4px; transition:background .2s;}
+.dash-nav a.active, .dash-nav a:hover{background:rgba(217,200,174,0.1); color:#fff;}
+.dash-main{padding:40px var(--pad);}
+.dash-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; flex-wrap:wrap; gap:16px;}
+.role-switch{display:flex; gap:8px; background:var(--parchment-soft); border:1px solid var(--ochre-line); padding:4px; border-radius:20px;}
+.role-switch button{padding:8px 18px; border-radius:16px; border:none; background:transparent; font-size:13px; font-weight:600; color:var(--umber);}
+.role-switch button.active{background:var(--espresso); color:#fff;}
+.kpi-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:36px;}
+.kpi{background:var(--parchment-soft); border:1px solid var(--ochre-line); padding:22px; border-radius:var(--radius);}
+.kpi .n{font-family:var(--font-display); font-size:28px; font-weight:700; color:var(--ochre-bright);}
+.kpi .l{font-size:12.5px; color:var(--umber); text-transform:uppercase; letter-spacing:.06em; margin-top:6px;}
+table{width:100%; border-collapse:collapse; background:var(--parchment-soft); border:1px solid var(--ochre-line);}
+th,td{text-align:left; padding:14px 16px; font-size:13.5px; border-bottom:1px solid var(--ochre-line);}
+th{text-transform:uppercase; font-size:11.5px; letter-spacing:.06em; color:var(--umber);}
+.status{padding:4px 12px; border-radius:12px; font-size:11.5px; font-weight:600;}
+.status.progress{background:rgba(138,90,52,0.15); color:var(--umber);}
+.status.done{background:rgba(76,120,60,0.15); color:#3d6b30;}
+.status.review{background:rgba(185,112,47,0.2); color:var(--ochre-bright);}
+.view{display:none;}
+.view.active{display:block;}
+@media (max-width:900px){.dash-shell{grid-template-columns:1fr;} .dash-side{display:flex; overflow-x:auto; gap:8px;} .kpi-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><img src="assets/logo.jpeg" alt="Blazefire Enterprise logo"> Blazefire</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="companies.html">Companies</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <a href="portal.html" class="active">Client Portal</a>
+      <a href="contact.html" class="nav-cta-mobile">Get a Quote</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Request a Quote</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="#241708" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+</nav>
+
+<div id="login-panel">
+  <header class="page-header" style="padding-bottom:60px;">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Client Portal</div>
+      <p class="eyebrow">For clients & Blazefire team</p>
+      <h1>Track your project,<br>in one place.</h1>
+    </div>
+  </header>
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="login-box reveal in">
+        <h2>Sign in</h2>
+        <p>Access your orders, approve designs, and download invoices.</p>
+        <form id="portal-login">
+          <div class="field" style="margin-bottom:16px;"><label for="p-email">Email</label><input id="p-email" type="email" placeholder="you@company.com" required></div>
+          <div class="field" style="margin-bottom:20px;"><label for="p-pass">Password</label><input id="p-pass" type="password" placeholder="••••••••" required></div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Sign In <span class="btn-arrow">→</span></button>
+        </form>
+        <div class="demo-note">This is a demo login — any email & password will open the sample dashboard below. Connect real authentication before launch.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="dashboard-panel">
+  <div class="dash-shell">
+    <aside class="dash-side">
+      <div class="db-brand"><img src="assets/logo.jpeg" alt=""> Blazefire</div>
+      <div class="dash-nav">
+        <a href="#" class="active" data-view="overview">Overview</a>
+        <a href="#" data-view="orders">Orders</a>
+        <a href="#" data-view="designs">Design Approvals</a>
+        <a href="#" data-view="invoices">Invoices</a>
+        <a href="#" data-view="messages">Messages</a>
+        <a href="#" id="portal-logout" style="margin-top:26px; color:#D9A063;">Log out</a>
+      </div>
+    </aside>
+    <main class="dash-main">
+      <div class="dash-top">
+        <h2 style="font-size:24px;">Welcome back</h2>
+        <div class="role-switch">
+          <button class="active" data-role="client">Client View</button>
+          <button data-role="admin">Admin View</button>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi"><div class="n" id="kpi-1">3</div><div class="l">Active Orders</div></div>
+        <div class="kpi"><div class="n" id="kpi-2">2</div><div class="l">Pending Approvals</div></div>
+        <div class="kpi"><div class="n" id="kpi-3">₦480k</div><div class="l">Outstanding Invoices</div></div>
+        <div class="kpi"><div class="n" id="kpi-4">12</div><div class="l">Completed Projects</div></div>
+      </div>
+
+      <div class="view active" data-view-panel="overview">
+        <h3 style="margin-bottom:16px; font-size:17px;">Recent orders</h3>
+        <table>
+          <thead><tr><th>Order</th><th>Division</th><th>Status</th><th>Due</th></tr></thead>
+          <tbody>
+            <tr><td>#BF-1042 — Corporate Hoodies (50)</td><td>Clothing</td><td><span class="status progress">In Production</span></td><td>12 Jul 2026</td></tr>
+            <tr><td>#BF-1041 — Logo & Brand Kit</td><td>Creative</td><td><span class="status review">Awaiting Approval</span></td><td>08 Jul 2026</td></tr>
+            <tr><td>#BF-1038 — Event Banners x8</td><td>Print</td><td><span class="status done">Delivered</span></td><td>28 Jun 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="view" data-view-panel="orders">
+        <h3 style="margin-bottom:16px; font-size:17px;">All orders</h3>
+        <table>
+          <thead><tr><th>Order</th><th>Division</th><th>Status</th><th>Due</th></tr></thead>
+          <tbody>
+            <tr><td>#BF-1042 — Corporate Hoodies (50)</td><td>Clothing</td><td><span class="status progress">In Production</span></td><td>12 Jul 2026</td></tr>
+            <tr><td>#BF-1041 — Logo & Brand Kit</td><td>Creative</td><td><span class="status review">Awaiting Approval</span></td><td>08 Jul 2026</td></tr>
+            <tr><td>#BF-1040 — ID Cards (120)</td><td>Merchandise</td><td><span class="status progress">In Production</span></td><td>15 Jul 2026</td></tr>
+            <tr><td>#BF-1038 — Event Banners x8</td><td>Print</td><td><span class="status done">Delivered</span></td><td>28 Jun 2026</td></tr>
+            <tr><td>#BF-1035 — Social Media Package</td><td>Digital</td><td><span class="status done">Delivered</span></td><td>20 Jun 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="view" data-view-panel="designs">
+        <h3 style="margin-bottom:16px; font-size:17px;">Design approvals</h3>
+        <table>
+          <thead><tr><th>Design</th><th>Submitted</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Logo Concept v3</td><td>02 Jul 2026</td><td><span class="status review">Needs Review</span></td><td><a href="#" class="eco-link">Review →</a></td></tr>
+            <tr><td>Hoodie Print Mockup</td><td>29 Jun 2026</td><td><span class="status done">Approved</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="view" data-view-panel="invoices">
+        <h3 style="margin-bottom:16px; font-size:17px;">Invoices</h3>
+        <table>
+          <thead><tr><th>Invoice</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>INV-2214</td><td>₦480,000</td><td><span class="status review">Unpaid</span></td><td><a href="#" class="eco-link">Download →</a></td></tr>
+            <tr><td>INV-2198</td><td>₦210,000</td><td><span class="status done">Paid</span></td><td><a href="#" class="eco-link">Download →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="view" data-view-panel="messages">
+        <h3 style="margin-bottom:16px; font-size:17px;">Messages with the Blazefire team</h3>
+        <div style="background:var(--parchment-soft); border:1px solid var(--ochre-line); padding:24px; border-radius:var(--radius); font-size:14px; color:var(--umber);">
+          "Hi! Your hoodie mockup is ready for review — check the Design Approvals tab whenever you get a chance." — Blazefire Production Team
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<footer style="margin-top:0;">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:1px solid rgba(217,200,174,0.15); padding-top:26px; margin-top:20px;">
+      <span>© 2026 Blazefire Enterprise. All rights reserved.</span>
+      <div><a href="#">Privacy Policy</a> · <a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+<script>
+  // Sidebar view switching
+  document.querySelectorAll('.dash-nav a[data-view]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('.dash-nav a[data-view]').forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+      const v = link.dataset.view;
+      document.querySelectorAll('.view').forEach(panel => panel.classList.toggle('active', panel.dataset.viewPanel === v));
+    });
+  });
+  // Role switch (client vs admin — demo relabels KPIs)
+  document.querySelectorAll('.role-switch button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.role-switch button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const isAdmin = btn.dataset.role === 'admin';
+      document.getElementById('kpi-1').textContent = isAdmin ? '48' : '3';
+      document.querySelector('#kpi-1').nextElementSibling.textContent = isAdmin ? 'Active Orders (All Clients)' : 'Active Orders';
+      document.getElementById('kpi-2').textContent = isAdmin ? '14' : '2';
+      document.getElementById('kpi-3').textContent = isAdmin ? '₦6.2M' : '₦480k';
+      document.getElementById('kpi-4').textContent = isAdmin ? '340' : '12';
+    });
+  });
+</script>
+</body>
+</html>

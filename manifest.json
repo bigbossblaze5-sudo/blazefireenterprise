@@ -1,0 +1,19 @@
+{
+  "name": "Blazefire Enterprise",
+  "short_name": "Blazefire",
+  "description": "Building Brands. Creating Impact. Empowering Growth. — Track orders, request quotes and explore the Blazefire ecosystem.",
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#F3E8D3",
+  "theme_color": "#241708",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Request a Quote", "url": "contact.html" },
+    { "name": "Client Portal", "url": "portal.html" }
+  ]
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Blazefire Enterprise</title>
+<link rel="icon" href="assets/logo.jpeg">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta name="theme-color" content="#241708">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.pf-tile{
+  aspect-ratio:4/3; width:100%; position:relative; display:flex; align-items:flex-end;
+  background:linear-gradient(155deg, var(--umber), var(--espresso));
+}
+.pf-tile.t2{background:linear-gradient(155deg, var(--ochre-bright), var(--umber));}
+.pf-tile.t3{background:linear-gradient(155deg, #6b4526, #241708);}
+.pf-tile.t4{background:linear-gradient(155deg, var(--ochre), #2e1c0e);}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><img src="assets/logo.jpeg" alt="Blazefire Enterprise logo"> Blazefire</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="companies.html">Companies</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <a href="portal.html">Client Portal</a>
+      <a href="contact.html" class="nav-cta-mobile">Get a Quote</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Request a Quote</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="#241708" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Portfolio</div>
+    <p class="eyebrow">Selected work</p>
+    <h1>Projects across<br>every division.</h1>
+  </div>
+</header>
+
+<section style="padding-top:60px;">
+  <div class="container">
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="apparel">Apparel</button>
+      <button class="filter-btn" data-filter="print">Print</button>
+      <button class="filter-btn" data-filter="brand">Brand Identity</button>
+      <button class="filter-btn" data-filter="digital">Digital</button>
+      <button class="filter-btn" data-filter="merch">Merchandise</button>
+    </div>
+
+    <div class="portfolio-grid reveal">
+      <div class="pf-item" data-cat="brand">
+        <div class="pf-tile"></div>
+        <div class="pf-tag"><span class="cat">Brand Identity · Events</span><h4>TEDx Bingham University</h4></div>
+      </div>
+      <div class="pf-item" data-cat="merch">
+        <div class="pf-tile t2"></div>
+        <div class="pf-tag"><span class="cat">Merchandise</span><h4>TEDx Souvenir Collection</h4></div>
+      </div>
+      <div class="pf-item" data-cat="apparel">
+        <div class="pf-tile t3"></div>
+        <div class="pf-tag"><span class="cat">Apparel</span><h4>TEDx Event Shirts</h4></div>
+      </div>
+      <div class="pf-item" data-cat="brand">
+        <div class="pf-tile t4"></div>
+        <div class="pf-tag"><span class="cat">Brand Identity</span><h4>Teleios Media — Visual System</h4></div>
+      </div>
+      <div class="pf-item" data-cat="digital">
+        <div class="pf-tile"></div>
+        <div class="pf-tag"><span class="cat">Digital</span><h4>Teleios Media — Content Strategy</h4></div>
+      </div>
+      <div class="pf-item" data-cat="apparel">
+        <div class="pf-tile t2"></div>
+        <div class="pf-tag"><span class="cat">Apparel · Print</span><h4>Campus Uniform Rollout</h4></div>
+      </div>
+      <div class="pf-item" data-cat="print">
+        <div class="pf-tile t3"></div>
+        <div class="pf-tag"><span class="cat">Print</span><h4>Embroidered Corporate Wear</h4></div>
+      </div>
+      <div class="pf-item" data-cat="merch">
+        <div class="pf-tile t4"></div>
+        <div class="pf-tag"><span class="cat">Merchandise</span><h4>Church Anniversary Gift Boxes</h4></div>
+      </div>
+      <div class="pf-item" data-cat="print">
+        <div class="pf-tile"></div>
+        <div class="pf-tag"><span class="cat">Print</span><h4>Large Format Event Signage</h4></div>
+      </div>
+      <div class="pf-item" data-cat="digital">
+        <div class="pf-tile t2"></div>
+        <div class="pf-tag"><span class="cat">Digital</span><h4>NGO Awareness Campaign</h4></div>
+      </div>
+      <div class="pf-item" data-cat="brand">
+        <div class="pf-tile t3"></div>
+        <div class="pf-tag"><span class="cat">Brand Identity</span><h4>Startup Rebrand — Fintech</h4></div>
+      </div>
+      <div class="pf-item" data-cat="apparel">
+        <div class="pf-tile t4"></div>
+        <div class="pf-tag"><span class="cat">Apparel</span><h4>Community Football Jerseys</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case-studies" class="section-alt">
+  <div class="container">
+    <div class="section-head reveal"><p class="eyebrow">Case Study</p><h2>TEDx Bingham University Nigeria</h2></div>
+    <div class="two-col reveal">
+      <div class="pf-tile" style="aspect-ratio:1/1;"></div>
+      <div>
+        <p class="pill">Event branding · Merchandise · Apparel</p>
+        <p style="color:var(--umber); margin:18px 0;">Blazefire delivered full event branding, custom shirts, and souvenir production for one of Nigeria's most talked-about TEDx stages — from concept to on-site delivery in under three weeks.</p>
+        <ul style="color:var(--umber); font-size:14.5px; display:flex; flex-direction:column; gap:8px;">
+          <li>— Event brand system & signage</li>
+          <li>— 500+ custom event shirts</li>
+          <li>— Speaker & attendee gift boxes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo.jpeg" alt=""> Blazefire</div><p style="font-size:14px; max-width:32ch;">Building Brands. Creating Impact. Empowering Growth.</p></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="blog.html">Blog</a></li><li><a href="careers.html">Careers</a></li></ul></div>
+      <div><h5>Divisions</h5><ul><li><a href="companies.html#clothing">Clothing</a></li><li><a href="companies.html#print">Print</a></li><li><a href="companies.html#creative">Creative</a></li><li><a href="companies.html#digital">Digital</a></li><li><a href="companies.html#merchandise">Merchandise</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="services.html">Services</a></li><li><a href="contact.html">Request a Quote</a></li><li><a href="portal.html">Client Portal</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li>hello@blazefireenterprise.com</li><li>+234 800 000 0000</li><li>Lagos, Nigeria</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Blazefire Enterprise. All rights reserved.</span><div><a href="#">Privacy Policy</a> · <a href="#">Terms</a></div></div>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
